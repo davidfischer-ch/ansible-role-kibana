@@ -28,7 +28,7 @@
   template:
     src: '{{ item }}'
     dest: /etc/kibana/kibana.yml
-    mode: 0644
+    mode: '644'
   become: yes
   notify: reload kibana
   tags: [kibana, config]
