@@ -34,7 +34,8 @@
   tags: [kibana, config]
   with_first_found:
     - kibana.{{ kibana_version }}.yml.j2
-    - kibana.{{ kibana_version[0] }}.yml.j2
+    - kibana.{{ kibana_version.split('.')[:-1]|join('.') }}.yml.j2
+    - kibana.{{ kibana_version.split('.')[:-2]|join('.') }}.yml.j2
 
 - block:
     - name: Start Kibana service
